@@ -1,0 +1,51 @@
+<h1>Signup</h1>
+<p>New around here well tell us about yourself!</p>
+
+<div class="row">
+    <form class="col s12" method="POST" action="/auth/signup">
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="first_name" type="text" name="firstName" value="<%= data.firstName %>">
+            <label for="firstName">First Name</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="last_name" type="text" name="lastName" value="<%= data.lastName %>">
+            <label for="lastName">Last Name</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="email" type="text" name="email" value="<%= data.email %>">
+            <label for="email">Email</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="password" type="password" name="password">
+            <label for="password">Password</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="password_verify" type="password" name="password_verify">
+            <label for="password_verify">Verify Password</label>
+        </div>
+        <div class="input-field col s12">
+            <textarea id="bio" class="materialize-textarea" name="bio" value="<%= data.value %>"></textarea>
+            <label for="bio">Bio</label>
+          </div>
+        <div class="input-field col s4">
+            <input id="birthdate" type="text" name="birthdate" class="datepicker" value="<%= data.birthdate %>">
+            <label for="birthdate">Birthdate</label>
+        </div>
+        <div class="input-field col s4">
+            <input id="displayName" type="text" name="displayName" value="<%= data.displayName %>">
+            <label for="displayName">Username</label>
+        </div>
+        <div class="input-field col s4">
+            <input id="zipcode" type="number" name="zipcode" value="<%= data.zipcode %>">
+            <label for="zipcode">Zip Code</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="pic" type="url" name="pic" value="<%= data.pic %>">
+            <label for="pic">Pic Url</label>
+        </div>
+        <label for="submit"></label>
+        <input type="submit" name="submit">
+      </div>
+    </form>
+  </div>

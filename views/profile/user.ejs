@@ -1,0 +1,14 @@
+<h1><%= user.firstName %>'s Profile</h1>
+
+<div class="row">
+    <div class="col s4">
+        <img src="<%=user.pic%>" alt="profile pic">
+    </div>
+    <div class="col s4">
+        <p><strong>Name:</strong><%= user.firstName%> <%=user.lastName%></p>
+        <p><strong>Birthday: </strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY') %></p>
+        <p>
+            <%= user.bio %>
+        </p>
+    </div>
+</div>

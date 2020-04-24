@@ -1,0 +1,20 @@
+html,
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #9ACBFF;
+    color: #5984B3;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+  }
+
+.logo {
+    font-size: 2.1em;
+}
