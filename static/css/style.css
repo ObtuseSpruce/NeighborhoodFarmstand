@@ -4,8 +4,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #9ACBFF;
-    color: #5984B3;
+    color: white;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -17,4 +16,25 @@ main {
 
 .logo {
     font-size: 2.1em;
+}
+
+nav li a {
+    color: #5d4037
+}
+
+#html, #body, #map-container {
+    height: 100%;
+}
+
+#map {
+    height: 40%;
+}
+#mappy {
+    margin:10px;
+}
+
+#postList {
+    margin-top: 10px;
+    height: 300px;
+    overflow: scroll;
 }

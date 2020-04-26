@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Auth Boilerplate</title>
+    <title>Neighborhood Farmstand</title>
      <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />  
     <link rel="stylesheet" href="/css/style.css"
 </head>
+<style>
+    #map { top: 20%; bottom: 0; left: 30%; width: 35%; height: 200px;};
+  </style>
 <body> 
     <!-- TO DO NAV -->
     <%- include('partials/nav') %>
    
     <!-- Alerts Partial for Flash -->
     <%- include ('partials/alerts') %>
-    <main>
+    <main class="orange accent-3">
+        
         <%- body %>        
     </main>
     <!-- TO DO FOOTER -->

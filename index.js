@@ -11,6 +11,9 @@ let layouts = require('express-ejs-layouts')
 //create an app instance
 let app = express()
 
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding')
+const geocodingClient = mbxGeocoding({ accessToken: process.env.MAPBOX_TOKEN})
+
 //include Passport
 let passport = require('./config/passportConfig')
 
@@ -60,7 +63,7 @@ app.use('/profile', require('./controllers/profile'))
 
 //home page
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home', { mapkey: process.env.MAPBOX_TOKEN })
 })
 
 //create a wildcard (catch-all) route

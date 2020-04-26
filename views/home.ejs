@@ -1,2 +1,76 @@
-<h1>home page</h1>
+<h1>Neighborhood Farmstand</h1>
 <p>More stuff will go here later</p>
+<div class="col s12" id="mappy">
+    <div id="map">
+        <script>
+            // let lat = document.getElementById('lat').textContent
+            let lat = 47.6038
+            // let long = document.getElementById('long').textContent
+            let long = -122.3301
+            console.log(lat, long)
+            mapboxgl.accessToken = '<%= mapkey %>';
+            var map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+                center: [long, lat], // starting position [lng, lat]
+                zoom: 12 // starting zoom
+            });
+            let geojson = {
+                type: 'FeatureCollection',
+                features: [{
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [long, lat]
+                    },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'map'
+                }
+                }]
+            };
+            // geojson.features.forEach((marker) => {
+            //     let elem = document.createElement('div')
+            //     elem.className = 'marker'
+            //     new mapboxgl.Marker(elem)
+            //     .setLngLat(marker.geometry.coordinates)
+            //     .addTo(map)
+            // })
+        </script>
+    </div>
+</div>
+
+<div  class="container yellow darken-1" id="postList">
+    <div class="row">
+        <div class="col s6" >
+            <h3> stuff here</h3>
+        </div>
+        <div class="col s6">
+        <h3>Stuff Here</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6" >
+            <h3> stuff here</h3>
+        </div>
+        <div class="col s6">
+        <h3>Stuff Here</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6" >
+            <h3> stuff here</h3>
+        </div>
+        <div class="col s6">
+        <h3>Stuff Here</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6" >
+            <h3> stuff here</h3>
+        </div>
+        <div class="col s6">
+        <h3>Stuff Here</h3>
+        </div>
+    </div>
+</div>
