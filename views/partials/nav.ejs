@@ -1,33 +1,38 @@
-<nav class='yellow darken-1'>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo right brown-text text-darken-2">Neighborhood Farmstand</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-       <li><a href="/">Home</a></li>
-        <% if (user) { %>
-          <li><a href="/profile/user">Profile Page</a></li>
-          <li><a href="/auth/logout">logout</a></li>
-          <% if (user.admin) {%>
-            <li><a href="/profile/admin">admin</a></li>
+<div class="navbar-fixed">
+  <nav class='yellow darken-1'>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center brown-text text-darken-2">Neighborhood Farmstand</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+         <li><a href="/">Home</a></li>
+          <% if (user) { %>
+            <li><a href="/profile/user">Profile Page</a></li>
+            <li><a href="/post/new">New Post</a></li>
+            <li><a href="/post/show">Your Posts</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+            <% if (user.admin) {%>
+              <li><a href="/profile/admin">admin</a></li>
+            <% } %>
+            <% } else { %>
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/signup">Signup</a></li>
           <% } %>
-          <% } else { %>
-        <li><a href="/auth/login">Login</a></li>
-        <li><a href="/auth/signup">Signup</a></li>
-        <% } %>
-      </ul> 
-      <div>
+        </ul> 
+      </div>
+ 
   </nav>
-
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="/">Home</a></li>
-    <% if (user) { %>
-      <li><a href="/profile/user">Profile Page</a></li>
-      <li><a href="/auth/logout">logout</a></li>
-      <% if (user.admin) {%>
-        <li><a href="/profile/admin">admin</a></li>
+  
+    <ul class="sidenav" id="mobile-demo">
+      <li class="active"><a href="/">Home</a></li>
+      <% if (user) { %>
+        <li><a href="/profile/user">Profile Page</a></li>
+        <li><a href="/auth/logout">logout</a></li>
+        <% if (user.admin) {%>
+          <li><a href="/profile/admin">admin</a></li>
+        <% } %>
+        <% } else { %>
+      <li><a href="/auth/login">Login</a></li>
+      <li><a href="/auth/signup">Signup</a></li>
       <% } %>
-      <% } else { %>
-    <li><a href="/auth/login">Login</a></li>
-    <li><a href="/auth/signup">Signup</a></li>
-    <% } %>
-  </ul>
+    </ul>
+</div>

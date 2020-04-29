@@ -1,0 +1,30 @@
+<h1>Make a New Post</h1>
+
+<% console.log(user) %>
+
+<div class="row">
+    <form class="col s12" method="POST" action="/post/new">
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="offer" type="text" name="offer">
+            <label for="offer">What are you Offering?</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="trade" type="text" name="trade">
+            <label for="trade">What are you Trading?</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="zip" type="number" name="zip">
+            <label for="zip">zip code</label>
+        </div>
+        <div class="input-field col s6">
+            <input id="postContent" type="text" name="postContent">
+            <label for="postContent">Description</label>
+        </div>
+        <div>
+            <input type="hidden" name="userId" value= "<%=user.id%>">
+        </div>
+        <label for="submit"></label>
+        <input type="submit" name="submit">
+      </div>
+    </form>

@@ -1,0 +1,22 @@
+<h1> Edit the Post </h1>
+
+
+<div class="row">
+    <form class="col s12" method="POST" action="/post/<%=post.id%>?_method=PUT">
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="name" name="offer" type="text" value="<%=post.offer%>">
+                <label for="offer">Offer</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="postContent" name="postContent" value="<%=post.postContent%>">
+                <label for="postContent">Description</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light green" type="submit">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>

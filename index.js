@@ -8,7 +8,10 @@ let express = require('express')
 let flash = require('connect-flash')
 let session = require('express-session')
 let layouts = require('express-ejs-layouts')
+let methodOverride = require('method-override')
+let axios = require('axios')
 //create an app instance
+let db = require('./models')
 let app = express()
 
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding')
@@ -29,6 +32,8 @@ app.use(layouts)
 
 // set up a static folder
 app.use(express.static('static'))
+
+app.use(methodOverride('_method'))
 
 //decrypt POST route data (from forms etc)
 app.use(express.urlencoded({ extended: false }))
@@ -60,10 +65,19 @@ app.use((req, res, next) => {
 //controllers
 app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile'))
+app.use('/post', require('./controllers/post'))
+app.use('/search', require('./controllers/search'))
+
 
 //home page
 app.get('/', (req, res) => {
-    res.render('home', { mapkey: process.env.MAPBOX_TOKEN })
+    db.post.findAll()
+    .then((post) => {
+        res.render('home', { post, mapkey: process.env.MAPBOX_TOKEN })
+    })
+    .catch(err =>{
+        console.log(err)
+    })
 })
 
 //create a wildcard (catch-all) route

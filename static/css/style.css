@@ -22,19 +22,19 @@ nav li a {
     color: #5d4037
 }
 
+#postBox {
+    margin-top: 10px;
+    height: 500px;
+    overflow: scroll;
+}
+
 #html, #body, #map-container {
     height: 100%;
 }
 
-#map {
-    height: 40%;
-}
-#mappy {
-    margin:10px;
-}
+#map { 
+    height: 400px;
+    width: 50%;
+    margin: 0 auto;
+};
 
-#postList {
-    margin-top: 10px;
-    height: 300px;
-    overflow: scroll;
-}

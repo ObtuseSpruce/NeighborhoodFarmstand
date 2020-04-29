@@ -1,0 +1,17 @@
+<h1>View All Posts</h1>
+
+
+<% post.forEach(function(p) { %>
+    <% console.log(user.id, p.userId) %>
+    <% if(p.userId == user.id) { %>
+        <p> <%= p.postContent %></p>
+
+        <a href="/post/<%= p.id %>/edit" class="btn-small blue">
+            Edit Post
+        </a>
+
+        <form id="postDelete" method="POST" action="/post/<%= p.id %>?_method=DELETE">
+            <input type="submit" class="waves-effect waves-light btn-small blue" value="remove <%= p.id %>">
+        </form>
+   <% } %>
+<% }) %>
