@@ -2,7 +2,6 @@
 <% let lat2 = (match.center[1]) %>
 
 <% let newZip = [] %>
-<% console.log("here is the new", zipRes) %>
 
 <% for(let i = 0; i < zipRes.zip_codes.length; i++) { %>
  <%  newZip.push(parseInt(zipRes.zip_codes[i])) %>
@@ -13,7 +12,7 @@
     <div class="row">
         <div class="col s3"></div>
         <div class="col s3 yellow darken-1">
-            <form method="GET" action="/zipfind">
+            <form method="GET" action="/search">
                 <input type="text" name="zip" class="">
                 <label for="zip" name="Search By Neighborhood">search by neighborhood</label>
                 <button type="submit">submit</button>
@@ -32,7 +31,6 @@
     <div class="col s12" id="mappy">
         <div id="map">
             <script>
-                console.log("yeah this works!!!!")
                 let lat = document.getElementById('lat').textContent
                 let long = document.getElementById('long').textContent
                 mapboxgl.accessToken = '<%= mapkey %>';
@@ -70,25 +68,37 @@
 
 
 
-<div  class="container yellow darken-1" id="postBox" style="text-align: center;">
-
-
+<div id="postBox">
+<% let postCount = false %>
     <% for (let i = 0; i < post.length; i++) { %>
-       <% if(newZip.includes(post[i].zip)) { %>
-            <div class="card col s3 orange" id="postboxy" style="display: inline-block; margin-left: 10px;">
-                <div class="card-image waves-effect waves-block waves-light circle">
-                    <img class="activator" src="https://placekitten.com/150/150">
+        <% if(newZip.includes(post[i].zip)) { %>
+          <%  postCount = true; %>
+        <% } %>
+    <% } %>
+
+<% if(postCount === false) { %>
+    <h1>NO POSTS AVAILABLE</h1>
+<% } %>
+
+
+<% if(postCount === true){ %>
+    <% for (let i = 0; i < post.length; i++) { %>
+        <% if(newZip.includes(post[i].zip)) { %>
+        <div class="row">
+            <div class="col s3"></div>
+            <div class="yellow darken-1 col s6" >
+                <div>
+                    <img src="https://placekitten.com/150/150">
                 </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4"><%=post[i].offer%><i class="material-icons right">more_vert</i></span>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4"><%=post[i].trade%><i class="material-icons right">close</i></span>
-                    <p><%=post[i].postContent%>></p>
-                    <p><a href="#">This is a link</a></p>
+                <div class="col s12 brown-text text-darken-1">
+                    <p>offer: <%=post[i].offer%></p>
+                    <p>Trade: <%=post[i].trade%></p>
+                    <p>Description: <%=post[i].postContent%></p>
                 </div>
             </div>
-        <% }
+            <div class="col s3"></div>
+        </div>
+        <% } %>
     <% } %>
-</div>
+<% }%>
 </div>
