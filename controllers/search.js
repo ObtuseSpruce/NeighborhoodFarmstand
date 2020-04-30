@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
             const zipURL = 'https://www.zipcodeapi.com/rest/' + zipcodePull + '/radius.json/' + zipcode + '/5/miles?minimal'
             axios.get(zipURL).then( function(apiResponse) {
                 let zipRes = apiResponse.data;
+                console.log("api", zipRes)
                 res.render('search/show', { zipRes, query, match, mapkey: process.env.MAPBOX_TOKEN, post  })
             })
             // res.send(match)
