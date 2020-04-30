@@ -1,4 +1,4 @@
-body {
+.mainBody {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -7,7 +7,9 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-image: url("https://res.cloudinary.com/dg0v67kcj/image/upload/v1588197828/farmstandbackground2_wmmxi7.png");
-    background-size: contain, cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 #postBoxy {
@@ -26,8 +28,7 @@ nav li a {
     color: #5d4037
 }
 
-#postBox {
-    margin-top: 10px;
+#postContainer {
     height: 500px;
     overflow: scroll;
     padding: 10px;

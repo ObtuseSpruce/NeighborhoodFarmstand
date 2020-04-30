@@ -7,11 +7,10 @@
  <%  newZip.push(parseInt(zipRes.zip_codes[i])) %>
 <% } %> 
 
-<div style="padding: 50px; background-image: url('https://res.cloudinary.com/dg0v67kcj/image/upload/v1588197828/farmstandbackground2_wmmxi7.png'); background-size: contain;">
 <div class="row">
     <div class="row">
         <div class="col s4"></div>
-        <div class="col s4 yellow darken-1">
+        <div class="col s4 yellow darken-1 z-depth-2">
             <form method="GET" action="/search">
                 <input type="text" name="zip" class="">
                 <label for="zip" name="Search By Neighborhood">search by neighborhood</label>
@@ -19,12 +18,13 @@
             </form>
         </div>
     </div>
+</div>
 
     <p hidden id="long" > <%= match.center[0] %></p>
     <p hidden id="lat" > <%= match.center[1] %></p>
   
 
-    <div class="col s12" id="mappy">
+<div class="col s12" id="mappy">
         <div id="map">
             <script>
                 let lat = document.getElementById('lat').textContent
@@ -64,7 +64,7 @@
 
 
 
-<div id="postBox">
+<div class="container" id="postContainer">
 <% let postCount = false %>
     <% for (let i = 0; i < post.length; i++) { %>
         <% if(newZip.includes(post[i].zip)) { %>
@@ -76,13 +76,12 @@
     <h1>NO POSTS AVAILABLE</h1>
 <% } %>
 
-
 <% if(postCount === true){ %>
     <% for (let i = 0; i < post.length; i++) { %>
         <% if(newZip.includes(post[i].zip)) { %>
         <div class="row">
             <div class="col s3"></div>
-            <div class="col s6" id="postBoxy" style="">
+            <div class="col s6 z-depth-2" id="postBoxy">
                 <div>
                     <img src="https://placekitten.com/150/150">
                 </div>
@@ -97,4 +96,3 @@
         <% } %>
     <% } %>
 <% }%>
-</div>
