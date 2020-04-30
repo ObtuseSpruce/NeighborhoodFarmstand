@@ -17,6 +17,9 @@ module.exports = {
       postContent: {
         type: Sequelize.TEXT
       },
+      zip: {
+        type: Sequelize.INTEGER
+      },
       userId: {
         type: Sequelize.INTEGER
       },
