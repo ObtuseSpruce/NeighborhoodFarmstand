@@ -5,5 +5,10 @@
     "dialect": "postgres",
     "operatorsAliases": "false",
     "logging": false
+  },
+  "production": {
+    "dialect": "postgres",
+    "operatorsAliases": "false",
+    "use_env_variable": "DATABASE_URL"
   }
 }
