@@ -1,6 +1,4 @@
-html,
-
-body {
+html, body {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -8,6 +6,8 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url("https://res.cloudinary.com/dg0v67kcj/image/upload/v1588197828/farmstandbackground2_wmmxi7.png");
+    background-size: cover;
 }
 
 main {
