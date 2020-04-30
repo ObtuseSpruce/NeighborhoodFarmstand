@@ -1,4 +1,4 @@
-html, body {
+body {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -7,7 +7,11 @@ html, body {
     min-height: 100vh;
     flex-direction: column;
     background-image: url("https://res.cloudinary.com/dg0v67kcj/image/upload/v1588197828/farmstandbackground2_wmmxi7.png");
-    background-size: cover;
+    background-size: contain, cover;
+}
+
+#postBoxy {
+    background-color: rgba(253, 216, 53, .8)
 }
 
 main {
@@ -41,7 +45,4 @@ nav li a {
     margin: 50px auto;
 };
 
-#postboxy {
-    margin: 10px
-}
 

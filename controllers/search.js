@@ -22,11 +22,14 @@ router.get('/', (req, res) => {
         })
         .then(post => {
             let zipcode = req.query.zip
-            const zipURL = 'https://www.zipcodeapi.com/rest/' + zipcodePull + '/radius.json/' + zipcode + '/5/miles?minimal'
+            const zipURL = 'https://www.zipcodeapi.com/rest/' + zipcodePull + '/radius.json/' + zipcode + '/5/mile?minimal'
             axios.get(zipURL).then( function(apiResponse) {
                 let zipRes = apiResponse.data;
                 console.log("api", zipRes)
                 res.render('search/show', { zipRes, query, match, mapkey: process.env.MAPBOX_TOKEN, post  })
+            })
+            .catch(err => {
+                console.log("this is an error", err)
             })
             // res.send(match)
         })
