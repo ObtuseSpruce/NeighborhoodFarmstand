@@ -1,4 +1,4 @@
-# NeighborhoodFarmstand
+# Neighborhood Farmstand
 
 This is an app meant to help connect gardeners with people who are need of their extra produce!
 Its here to encourage neighborhood connections and promote gardening as a whole.
