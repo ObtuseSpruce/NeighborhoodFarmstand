@@ -1,20 +1,80 @@
+<% let fruitUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/fruit1_d5leh5.png" %>
+<% let veggieUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/veggie2_hg0svx.png" %>
+<% let dairyUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/dairy1_sag4ir.png" %>
+<% let freeUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588297796/free_vatkqr.png" %>
+<% let cashUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588297796/cash_injakv.png" %>
+
 <h1>View All Posts</h1>
 
     <% post.forEach(function(p) { %>
         <% if(p.userId == user.id) { %>
+            <% var imgUrl %>
+            <% var imgUrl2 %>
+            <% if (p.offerType == "fruit") { %>
+                <% imgUrl = fruitUrl; %>
+            <% } else if (p.offerType == "veggies") {%>
+                     <% imgUrl = veggieUrl; %>
+            <% } else if (p.offerType == "dairy") {%>
+                     <% imgUrl = dairyUrl; %>
+            <% } %>
+            <% if (p.tradeType == "fruit") { %>
+                <% imgUrl2 = fruitUrl; %>
+            <% } else if (p.tradeType == "veggies") {%>
+                     <% imgUrl2 = veggieUrl; %>
+            <% } else if (p.tradeType == "dairy") {%>
+                     <% imgUrl2 = dairyUrl; %>
+            <% } else if (p.tradeType == "free") {%>
+                    <% imgUrl2 = freeUrl; %>
+            <% } else if (p.tradeType == "money") {%>
+                    <% imgUrl2 = cashUrl; %>
+            <% } %>
             <div class="row">
-                <div class="col s4"></div>
-                <div class="col s4 yellow darken-1 z-depth-2 brown-text text-darken-2">
-                        <p>p.offer</p>
-                        <p> <%= p.postContent %></p>
-                        <a href="/post/<%= p.id %>/edit" class="btn-small blue">
-                            Edit Post
-                        </a>
-                
-                        <form id="postDelete" method="POST" action="/post/<%= p.id %>?_method=DELETE">
-                            <input type="submit" class="waves-effect waves-light btn-small blue" value="remove <%= p.id %>">
-                        </form>
+                <div class="col s3"></div>
+                <div class="col s6 z-depth-2" id="postBoxy" >
+                    <div class="card brown darken-2">
+                        <p> Posted: <%=p.createdAt%></p>
+                        <div>
+                          <img class="activator circle" src="<%= p.user.pic %>" id="postImg">
+                          <p> User: <%=p.user.displayName%></p>
+                        </div>
+                        <div class="activator">
+                          <span class="activator row">
+                          <div class="activator col s6">
+                            <img class="activator" id="postImg" src="<%=imgUrl%>">
+                            <p>I have <%=p.offerType%> specifically <%=p.offer%>!</p>
+                          </div>
+                          <div class="col s6">
+                              <img class="activator" id="postImg" src="<%=imgUrl2%>">
+                                <% if (p.tradeType == "free"){ %>
+                                    <p>I want to give them away!</p>
+                                <% } else if (p.tradeType == "money") { %>
+                                    <p>I would like a little compensation.</p>
+                                <% } else { %>
+                                    <p>Looking to trade for some <%=p.tradeType%> especially <%=p.trade%></p>
+                                <% } %>
+                          </div>
+                          <div class="col s12">
+                            <p>Details: <%=p.postContent%></p>
+                          </div>
+                          
+                        <div class="row">
+                              <div class="col s6">
+                                <a href="/post/<%= p.id %>/edit" class="btn-large brown">
+                                    Edit Post
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <form id="postDelete" method="POST" action="/post/<%= p.id %>?_method=DELETE">
+                                    <input hidden class="waves-effect waves-light" value="<%= p.id %>">
+                                    <button type="submit" class=" btn-large brown">Remove Post</button>
+                                </form>                          
+                            </div>
+                        </div>
+
+                        </div>
+                      </div>
                 </div>
-            </div>        
+                <div class="col s3"></div>
+            </div>   
             <% } %>
         <% }) %>

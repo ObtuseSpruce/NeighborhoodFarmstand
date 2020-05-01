@@ -1,20 +1,47 @@
 <h1> Edit the Post </h1>
 
 
-<div class="row">
+<div class="row" id="postBoxy">
     <form class="col s12" method="POST" action="/post/<%=post.id%>?_method=PUT">
         <div class="row">
             <div class="input-field col s4">
                 <input id="name" name="offer" type="text" value="<%=post.offer%>">
                 <label for="offer">Offer</label>
             </div>
+            <div class="input-field col s4">
+                <input id="name" name="trade" type="text" value="<%=post.trade%>">
+                <label for="offer">Trade</label>
+             </div>
         </div>
+
         <div class="row">
-            <div class="input-field col s12">
-                <input id="postContent" name="postContent" value="<%=post.postContent%>">
-                <label for="postContent">Description</label>
+            <div class="input-field col s3">
+                <select name="offerType">
+                    <option value="fruit">Fruit</option>
+                    <option value="veggies">Vegetable</option>
+                    <option value="dairy">Eggs or Dairy</option>
+                </select>
+                <label for="offerType">Type of Offer</label>
+            </div>
+            <div class="input-field col s3">
+                <select name="tradeType">
+                    <option value="fruit">Fruit</option>
+                    <option value="vegetable">Vegetable</option>
+                    <option value="dairy">Eggs or Dairy</option>
+                    <option value="free">Free!</option>
+                    <option value="money">Cash</option>
+                </select>
+                <label>Type of Trade</label>
             </div>
         </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="postContent">Posting</label>
+                <input id="postContent" name="postContent" value="<%=post.postContent%>">
+            </div>
+        </div>
+
         <button class="btn waves-effect waves-light green" type="submit">Submit
             <i class="material-icons right">send</i>
         </button>

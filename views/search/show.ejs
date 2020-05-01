@@ -100,7 +100,7 @@
                      <% imgUrl2 = dairyUrl; %>
             <% } else if (post[i].tradeType == "free") {%>
                     <% imgUrl2 = freeUrl; %>
-            <% } else if (post[i].tradeType == "cash") {%>
+            <% } else if (post[i].tradeType == "money") {%>
                     <% imgUrl2 = cashUrl; %>
             <% } %>
             <div class="row">
@@ -121,7 +121,9 @@
                           <div class="col s6">
                               <img class="activator" id="postImg" src="<%=imgUrl2%>">
                               <% if (post[i].tradeType == "free"){ %>
-                                  <p>I'm want to give them away!</p>
+                                    <p>I want to give them away!</p>
+                                <% } else if (post[i].tradeType == "money") { %>
+                                    <p>I would like a little compensation.</p>
                               <% } else { %>
                                   <p>Looking to trade for some <%=post[i].tradeType%> especially <%=post[i].trade%></p>
                               <% } %>

@@ -20,7 +20,7 @@
     </div>
 </div>
 
-<h1>Latest Bounties!</h1>
+<h1>Latest Offers</h1>
 <div  class="container" id="postContainer">
     <% post.forEach(function(p) { %>
         <% var imgUrl %>
@@ -40,7 +40,7 @@
                  <% imgUrl2 = dairyUrl; %>
         <% } else if (p.tradeType == "free") {%>
                 <% imgUrl2 = freeUrl; %>
-        <% } else if (p.tradeType == "cash") {%>
+        <% } else if (p.tradeType == "money") {%>
                 <% imgUrl2 = cashUrl; %>
         <% } %>
         <div class="row">
@@ -60,11 +60,13 @@
                       </div>
                       <div class="col s6">
                           <img class="activator" id="postImg" src="<%=imgUrl2%>">
-                          <% if (p.tradeType == "free"){ %>
-                              <p>I'm want to give them away!</p>
-                          <% } else { %>
-                              <p>Looking to trade for some <%=p.tradeType%> especially <%=p.trade%></p>
-                          <% } %>
+                            <% if (p.tradeType == "free"){ %>
+                                <p>I want to give them away!</p>
+                            <% } else if (p.tradeType == "money") { %>
+                                <p>I would like a little compensation.</p>
+                            <% } else { %>
+                                <p>Looking to trade for some <%=p.tradeType%> especially <%=p.trade%></p>
+                            <% } %>
                       </div>
                       <div class="col s12">
                         <p>Details: <%=p.postContent%></p>
