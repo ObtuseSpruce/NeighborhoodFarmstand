@@ -13,7 +13,11 @@
 }
 
 #postBoxy {
-    background-color: rgba(253, 216, 53, .8)
+    background-color: rgba(141, 110, 99, .8);
+}
+
+#postImg {
+    height: 150px;
 }
 
 main {

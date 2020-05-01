@@ -25,6 +25,8 @@ router.post('/new', (req, res) => {
         userId: req.body.userId,
         offer: req.body.offer,
         trade: req.body.trade,
+        offerType: req.body.offerType,
+        tradeType: req.body.tradeType,
         postContent: req.body.postContent,
         zip: req.body.zip
     })
@@ -51,6 +53,7 @@ router.delete('/:id', (req, res) => {
         where: {id: req.params.id},
     })
     .then((post) => {
+        console.log(post)
         res.render('post/edit', { post })
     })
     .catch(err => {

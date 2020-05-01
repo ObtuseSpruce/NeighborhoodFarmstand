@@ -14,8 +14,14 @@ module.exports = {
       trade: {
         type: Sequelize.STRING
       },
+      offerType: {
+        type: Sequelize.STRING
+      },
+      tradeType: {
+        type: Sequelize.STRING
+      },
       postContent: {
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
       },
       zip: {
         type: Sequelize.INTEGER

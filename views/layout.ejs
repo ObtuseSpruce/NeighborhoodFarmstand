@@ -47,6 +47,10 @@
                 maxYear: startDate.getFullYear() + 13,
             });
         });
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems3 = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems3, []);
+  });
 </script>
 </body>
 </html>

@@ -3,6 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const post = sequelize.define('post', {
     offer: DataTypes.STRING,
     trade: DataTypes.STRING,
+    offerType: DataTypes.STRING,
+    tradeType: DataTypes.STRING,
     postContent: DataTypes.STRING,
     zip: DataTypes.INTEGER,
     userId: DataTypes.INTEGER

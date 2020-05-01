@@ -2,22 +2,40 @@
 
 <% console.log(user) %>
 
-<div class="row">
+<div class="row" id="postBoxy">
     <form class="col s12" method="POST" action="/post/new">
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s3">
             <input id="offer" type="text" name="offer">
             <label for="offer">What are you Offering?</label>
         </div>
-        <div class="input-field col s6">
-            <input id="trade" type="text" name="trade">
-            <label for="trade">What are you Trading?</label>
+        <div class="input-field col s3">
+            <select name="offerType">
+                <option value="fruit">Fruit</option>
+                <option value="vegetable">Vegatable</option>
+                <option value="dairy">Eggs or Dairy</option>
+              </select>
+            <label for="offerType">Type of Offer</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s3">
+            <input id="trade" type="text" name="trade">
+            <label for="trade">What do you want to Trade for?</label>
+        </div>
+        <div class="input-field col s3">
+            <select name="tradeType">
+                <option value="fruit">Fruit</option>
+                <option value="vegetable">Vegetable</option>
+                <option value="dairy">Eggs or Dairy</option>
+                <option value="free">Free!</option>
+                <option value="money">Cash</option>
+            </select>
+            <label>Type of Trade</label>
+        </div>
+        <div class="input-field col s3">
             <input id="zip" type="number" name="zip">
             <label for="zip">zip code</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s9">
             <input id="postContent" type="text" name="postContent">
             <label for="postContent">Description</label>
         </div>
@@ -25,6 +43,7 @@
             <input type="hidden" name="userId" value= "<%=user.id%>">
         </div>
         <label for="submit"></label>
-        <input type="submit" name="submit">
+        <input type="submit" name="submit" class="btn brown darken-1">
       </div>
     </form>
+</div>

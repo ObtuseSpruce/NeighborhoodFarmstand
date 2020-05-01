@@ -1,6 +1,10 @@
 <% let long2 = (match.center[0]) %>
 <% let lat2 = (match.center[1]) %>
-
+<% let fruitUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/fruit1_d5leh5.png" %>
+<% let veggieUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/veggie2_hg0svx.png" %>
+<% let dairyUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/dairy1_sag4ir.png" %>
+<% let freeUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588297796/free_vatkqr.png" %>
+<% let cashUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588297796/cash_injakv.png" %>
 <% let newZip = [] %>
 
 <% for(let i = 0; i < zipRes.zip_codes.length; i++) { %>
@@ -77,6 +81,8 @@
 <% } %>
 
 <% if(postCount === true){ %>
+    <% var imgUrl %>
+    <% var imgUrl2 %>
     <% for (let i = 0; i < post.length; i++) { %>
         <% if(newZip.includes(post[i].zip)) { %>
         <div class="row">
@@ -85,9 +91,39 @@
                 <div>
                     <img src="https://placekitten.com/150/150">
                 </div>
-                <div class="col s12 brown-text text-darken-1">
-                    <p>offer: <%=post[i].offer%></p>
-                    <p>Trade: <%=post[i].trade%></p>
+                <div class="col s12 white-text">
+                    <% if (post[i].offerType == "fruit") { %>
+                        <% imgUrl = fruitUrl; %>
+                    <% } else if (post[i].offerType == "veggies") {%>
+                             <% imgUrl = veggieUrl; %>
+                    <% } else if (post[i].offerType == "dairy") {%>
+                             <% imgUrl = dairyUrl; %>
+                    <% } %>
+                    <% if (post[i].tradeType == "fruit") { %>
+                        <% imgUrl2 = fruitUrl; %>
+                    <% } else if (post[i].tradeType == "veggies") {%>
+                             <% imgUrl2 = veggieUrl; %>
+                    <% } else if (post[i].tradeType == "dairy") {%>
+                             <% imgUrl2 = dairyUrl; %>
+                    <% } else if (post[i].tradeType == "free") {%>
+                            <% imgUrl2 = freeUrl; %>
+                    <% } else if (post[i].tradeType == "cash") {%>
+                            <% imgUrl2 = cashUrl; %>
+                    <% } %>
+                    <div class="row">
+                        <div class="col s6">
+                            <img id="postImg" src="<%=imgUrl%>">
+                            <p>I have <%=post[i].offerType%> specifically <%=post[i].offer%>!</p>
+                        </div>
+                        <div class="col s6">
+                            <img id="postImg" src="<%=imgUrl2%>">
+                            <% if (post[i].tradeType == "free"){ %>
+                                <p>I'm want to give them away!</p>
+                            <% } else { %>
+                                <p>Looking to trade for some <%=post[i].tradeType%> especially <%=post[i].trade%></p>
+                            <% } %>
+                        </div>
+                    </div>
                     <p>Description: <%=post[i].postContent%></p>
                 </div>
             </div>
