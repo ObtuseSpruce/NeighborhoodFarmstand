@@ -85,50 +85,70 @@
     <% var imgUrl2 %>
     <% for (let i = 0; i < post.length; i++) { %>
         <% if(newZip.includes(post[i].zip)) { %>
-        <div class="row">
-            <div class="col s3"></div>
-            <div class="col s6 z-depth-2" id="postBoxy">
-                <div>
-                    <img src="https://placekitten.com/150/150">
-                </div>
-                <div class="col s12 white-text">
-                    <% if (post[i].offerType == "fruit") { %>
-                        <% imgUrl = fruitUrl; %>
-                    <% } else if (post[i].offerType == "veggies") {%>
-                             <% imgUrl = veggieUrl; %>
-                    <% } else if (post[i].offerType == "dairy") {%>
-                             <% imgUrl = dairyUrl; %>
-                    <% } %>
-                    <% if (post[i].tradeType == "fruit") { %>
-                        <% imgUrl2 = fruitUrl; %>
-                    <% } else if (post[i].tradeType == "veggies") {%>
-                             <% imgUrl2 = veggieUrl; %>
-                    <% } else if (post[i].tradeType == "dairy") {%>
-                             <% imgUrl2 = dairyUrl; %>
-                    <% } else if (post[i].tradeType == "free") {%>
-                            <% imgUrl2 = freeUrl; %>
-                    <% } else if (post[i].tradeType == "cash") {%>
-                            <% imgUrl2 = cashUrl; %>
-                    <% } %>
-                    <div class="row">
-                        <div class="col s6">
-                            <img id="postImg" src="<%=imgUrl%>">
-                            <p>I have <%=post[i].offerType%> specifically <%=post[i].offer%>!</p>
+            <% if (post[i].offerType == "fruit") { %>
+                <% imgUrl = fruitUrl; %>
+            <% } else if (post[i].offerType == "veggies") {%>
+                     <% imgUrl = veggieUrl; %>
+            <% } else if (post[i].offerType == "dairy") {%>
+                     <% imgUrl = dairyUrl; %>
+            <% } %>
+            <% if (post[i].tradeType == "fruit") { %>
+                <% imgUrl2 = fruitUrl; %>
+            <% } else if (post[i].tradeType == "veggies") {%>
+                     <% imgUrl2 = veggieUrl; %>
+            <% } else if (post[i].tradeType == "dairy") {%>
+                     <% imgUrl2 = dairyUrl; %>
+            <% } else if (post[i].tradeType == "free") {%>
+                    <% imgUrl2 = freeUrl; %>
+            <% } else if (post[i].tradeType == "cash") {%>
+                    <% imgUrl2 = cashUrl; %>
+            <% } %>
+            <div class="row">
+                <div class="col s3"></div>
+                <div class="col s6 z-depth-2" id="postBoxy" >
+                    <div class="card brown darken-2">
+                        <p> Posted: <%=post[i].createdAt%></p>
+                        <div>
+                          <img class="activator circle" src="<%= post[i].user.pic %>" id="postImg">
+                          <p> User: <%=post[i].user.displayName%></p>
                         </div>
-                        <div class="col s6">
-                            <img id="postImg" src="<%=imgUrl2%>">
-                            <% if (post[i].tradeType == "free"){ %>
-                                <p>I'm want to give them away!</p>
-                            <% } else { %>
-                                <p>Looking to trade for some <%=post[i].tradeType%> especially <%=post[i].trade%></p>
+                        <div class="activator">
+                          <span class="activator row">
+                          <div class="activator col s6">
+                            <img class="activator" id="postImg" src="<%=imgUrl%>">
+                            <p>I have <%=post[i].offerType%> specifically <%=post[i].offer%>!</p>
+                          </div>
+                          <div class="col s6">
+                              <img class="activator" id="postImg" src="<%=imgUrl2%>">
+                              <% if (post[i].tradeType == "free"){ %>
+                                  <p>I'm want to give them away!</p>
+                              <% } else { %>
+                                  <p>Looking to trade for some <%=post[i].tradeType%> especially <%=post[i].trade%></p>
+                              <% } %>
+                          </div>
+                          <div class="col s12">
+                            <p>Details: <%=post[i].postContent%></p>
+                          </div>
+                          <div class="col s12">
+                            <button class="activator btn brown">Click Here for Contact Information</button>
+                          </div>
+                        </div>
+                        <div class="card-reveal brown lighten-2">
+                          <span class="card-title grey-text text-darken-4">Contact Information<i class="material-icons right">close</i></span>
+                            <% if (user) { %>
+                                <p>Email the user for more details about the trade!</p>
+                                <p>Email: <%=post[i].user.email%></p>
+                            <% } else {%>
+                                <p>You need to be logged in to see personal details.</p>
+                                <p>Please login or signup if you're new</p>
+                                <a class="btn brown" href="/auth/login">Login</a>
+                                <a class="btn brown" href="/auth/signup">Signup</a>
                             <% } %>
                         </div>
-                    </div>
-                    <p>Description: <%=post[i].postContent%></p>
+                      </div>
                 </div>
+                <div class="col s3"></div>
             </div>
-            <div class="col s3"></div>
-        </div>
         <% } %>
     <% } %>
 <% }%>

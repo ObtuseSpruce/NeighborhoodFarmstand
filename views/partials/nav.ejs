@@ -23,10 +23,12 @@
   </nav>
   
     <ul class="sidenav" id="mobile-demo">
-      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/">Home</a></li>
       <% if (user) { %>
         <li><a href="/profile/user">Profile Page</a></li>
-        <li><a href="/auth/logout">logout</a></li>
+        <li><a href="/post/new">New Post</a></li>
+        <li><a href="/post/show">Your Posts</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
         <% if (user.admin) {%>
           <li><a href="/profile/admin">admin</a></li>
         <% } %>

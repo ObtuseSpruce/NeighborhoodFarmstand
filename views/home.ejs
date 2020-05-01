@@ -1,5 +1,10 @@
+<% let fruitUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/fruit1_d5leh5.png" %>
+<% let veggieUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/veggie2_hg0svx.png" %>
+<% let dairyUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/dairy1_sag4ir.png" %>
+<% let freeUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588297796/free_vatkqr.png" %>
+<% let cashUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588297796/cash_injakv.png" %>
 
-<h3>WELCOME TO</h3>
+<h5>WELCOME TO</h5>
 <h1>NEIGHBORHOOD FARMSTAND</h1>
 
 <div class="row">
@@ -18,21 +23,67 @@
 <h1>Latest Bounties!</h1>
 <div  class="container" id="postContainer">
     <% post.forEach(function(p) { %>
+        <% var imgUrl %>
+        <% var imgUrl2 %>
+        <% if (p.offerType == "fruit") { %>
+            <% imgUrl = fruitUrl; %>
+        <% } else if (p.offerType == "veggies") {%>
+                 <% imgUrl = veggieUrl; %>
+        <% } else if (p.offerType == "dairy") {%>
+                 <% imgUrl = dairyUrl; %>
+        <% } %>
+        <% if (p.tradeType == "fruit") { %>
+            <% imgUrl2 = fruitUrl; %>
+        <% } else if (p.tradeType == "veggies") {%>
+                 <% imgUrl2 = veggieUrl; %>
+        <% } else if (p.tradeType == "dairy") {%>
+                 <% imgUrl2 = dairyUrl; %>
+        <% } else if (p.tradeType == "free") {%>
+                <% imgUrl2 = freeUrl; %>
+        <% } else if (p.tradeType == "cash") {%>
+                <% imgUrl2 = cashUrl; %>
+        <% } %>
         <div class="row">
             <div class="col s3"></div>
             <div class="col s6 z-depth-2" id="postBoxy" >
-                <div class="card small  brown darken-2">
+                <div class="card brown darken-2">
+                    <p> Posted: <%=p.createdAt%></p>
                     <div>
-                      <img class="activator" src="https://placekitten.com/150/150">
-                      <p><%=p.postContent%></p>
+                      <img class="activator circle" src="<%= p.user.pic %>" id="postImg">
+                      <p> User: <%=p.user.displayName%></p>
                     </div>
-                    <div class="card-content">
-                      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                      <p><a href="#">This is a link</a></p>
+                    <div class="activator">
+                      <span class="activator row">
+                      <div class="activator col s6">
+                        <img class="activator" id="postImg" src="<%=imgUrl%>">
+                        <p>I have <%=p.offerType%> specifically <%=p.offer%>!</p>
+                      </div>
+                      <div class="col s6">
+                          <img class="activator" id="postImg" src="<%=imgUrl2%>">
+                          <% if (p.tradeType == "free"){ %>
+                              <p>I'm want to give them away!</p>
+                          <% } else { %>
+                              <p>Looking to trade for some <%=p.tradeType%> especially <%=p.trade%></p>
+                          <% } %>
+                      </div>
+                      <div class="col s12">
+                        <p>Details: <%=p.postContent%></p>
+                      </div>
+                      <div class="col s12">
+                        <button class="activator btn brown">Click Here for Contact Information</button>
+                      </div>
                     </div>
-                    <div class="card-reveal">
-                      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    <div class="card-reveal brown lighten-2">
+                      <span class="card-title grey-text text-darken-4">Contact Information<i class="material-icons right">close</i></span>
+                        <% if (user) { %>
+                            <p>Email the user for more details about the trade!</p>
+                            <p>Email: <%=p.user.email%></p>
+                        <% } else {%>
+                            <p>You need to be logged in to see personal details.</p>
+                            <p>Please login or signup if you're new</p>
+                            <a class="btn brown" href="/auth/login">Login</a>
+                            <a class="btn brown" href="/auth/signup">Signup</a>
+                        <% } %>
                     </div>
                   </div>
             </div>

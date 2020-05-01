@@ -71,7 +71,9 @@ app.use('/search', require('./controllers/search'))
 
 //home page
 app.get('/', (req, res) => {
-    db.post.findAll()
+    db.post.findAll({
+        include: [db.user]
+    })
     .then((post) => {
         res.render('home', { post, mapkey: process.env.MAPBOX_TOKEN })
     })
