@@ -21,20 +21,20 @@
       </div>
  
   </nav>
-  
-    <ul class="sidenav" id="mobile-demo">
-      <li><a href="/">Home</a></li>
-      <% if (user) { %>
-        <li><a href="/profile/user">Profile Page</a></li>
-        <li><a href="/post/new">New Post</a></li>
-        <li><a href="/post/show">Your Posts</a></li>
-        <li><a href="/auth/logout">Logout</a></li>
-        <% if (user.admin) {%>
-          <li><a href="/profile/admin">admin</a></li>
-        <% } %>
-        <% } else { %>
-      <li><a href="/auth/login">Login</a></li>
-      <li><a href="/auth/signup">Signup</a></li>
-      <% } %>
-    </ul>
 </div>
+
+  <ul class="sidenav yellow darken-1" id="mobile-demo">
+    <li><a href="/">Home</a></li>
+    <% if (user) { %>
+      <li><a href="/profile/user">Profile Page</a></li>
+      <li><a href="/post/new">New Post</a></li>
+      <li><a href="/post/show">Your Posts</a></li>
+      <li><a href="/auth/logout">Logout</a></li>
+      <% if (user.admin) {%>
+        <li><a href="/profile/admin">admin</a></li>
+      <% } %>
+      <% } else { %>
+    <li><a href="/auth/login">Login</a></li>
+    <li><a href="/auth/signup">Signup</a></li>
+    <% } %>
+  </ul>
