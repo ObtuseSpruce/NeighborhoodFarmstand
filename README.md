@@ -35,7 +35,7 @@ Its here to encourage neighborhood connections and promote gardening as a whole.
 | column | Type | Notes
 | ----------- | ------------ | --------------------- |
 | id | Integer | Serial Primary Key |
-| offer | String | Required Length > 1 |
+| offer | String | - |
 | trade | String | - |
 | offerType | String | - |
 | tradeType | String | - |
