@@ -32,6 +32,14 @@ nav li a {
     color: #5d4037
 }
 
+#textTop {
+    font-size: 15px;
+}
+
+#textFooter {
+    font-style: italic;
+}
+
 #postContainer {
     height: 500px;
     overflow: scroll;

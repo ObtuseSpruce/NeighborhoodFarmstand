@@ -3,18 +3,42 @@
 <% let dairyUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588296258/dairy1_sag4ir.png" %>
 <% let freeUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588297796/free_vatkqr.png" %>
 <% let cashUrl = "https://res.cloudinary.com/dg0v67kcj/image/upload/v1588297796/cash_injakv.png" %>
-
-<h5>WELCOME TO</h5>
-<h1>NEIGHBORHOOD FARMSTAND</h1>
+<div class="header">
+    <h1>NEIGHBORHOOD FARMSTAND</h1>
+</div>
+<div class="row">
+    <div class="col s1"></div>
+    <div class="col s5 z-depth-2" id="postBoxy">
+        <div class="brown darken-2 z-depth-2">
+                <h3>What is Neighborhood Farmstand?</h3>
+                <p class="flow-text" id="textTop"> Gardening no matter where you exist is alive. From neighborhoods with shared gardens to a tomato plant on someone's desk.
+                    All too often however, aside from the the farmers market there isn't easy access to all the great produce.<br>
+                    <hr>
+                    Neighborhood Farmstand is here to connect people who have grown too much, with those who need it.<br>
+                </p>
+        </div>
+    </div>
+    <div class="col s5 z-depth-2" id="postBoxy">
+        <div class="brown darken-2 z-depth-2">
+                <h3>How does the Farmstand Work?</h3>
+                <p class="flow-text" id="textTop"> Getting started is as simple as searching your zip code in the search bar below! 
+                    It will collect all the posts in area surrounding that zip for you to browse.
+                    Highly encouraged to login or signup for further access to communicate with those who posted offer.
+                    <hr>
+                    Do not worry if you don't have a garden or anything to list! This is a place welcome to everyone!
+                </p>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="row">
         <div class="col s4"></div>
         <div class="col s4 yellow darken-1 z-depth-2">
             <form method="GET" action="/search">
-                <input type="text" name="zip" class="">
-                <label for="zip" name="Search By Neighborhood">search by neighborhood</label>
-                <button type="submit">submit</button>
+                <label for="zip" name="Search By Neighborhood">search by zipcode</label>
+                <input type="text" name="zip">
+                <button class="btn small brown" type="submit">submit</button>
             </form>
         </div>
     </div>
