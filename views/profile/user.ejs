@@ -1,15 +1,18 @@
 
 <h1><%= user.firstName %>'s Profile</h1>
-
 <div class="row">
-    <div class="col s4">
-        <img src="<%=user.pic%>" alt="profile pic">
+<div class="col s2"></div>
+    <div class="col s8" id="postBoxy">
+        <div class="col s4">
+            <img class="circle" src="<%=user.pic%>" alt="profile pic">
+        </div>
+        <div class="col s4">
+            <p>Username: <%= user.displayName%></p>
+            <p>First Name: <%= user.firstName%> </p>
+            <p>Last Name: <%=user.lastName%></p>
+            <p>Birthday: <%= moment(user.birthday).format('dddd MMMM Do[,] YYYY') %></p>
+            <p> User Bio: <%= user.bio %> </p>
+        </div>
     </div>
-    <div class="col s4">
-        <p><strong>Name:</strong><%= user.firstName%> <%=user.lastName%></p>
-        <p><strong>Birthday: </strong><%= moment(user.birthday).format('dddd MMMM Do[,] YYYY') %></p>
-        <p>
-            <%= user.bio %>
-        </p>
-    </div>
+<div class="col s2"></div>
 </div>
